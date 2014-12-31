@@ -74,6 +74,7 @@ class RCSwitch {
 	void resetAvailable();
 	
     unsigned long getReceivedValue();
+    char* getReceivedValueBin();
     unsigned int getReceivedBitlength();
     unsigned int getReceivedDelay();
 	unsigned int getReceivedProtocol();

@@ -468,6 +468,11 @@ unsigned long RCSwitch::getReceivedValue() {
     return RCSwitch::nReceivedValue;
 }
 
+char* RCSwitch::getReceivedValueBin() {
+    return RCSwitch::dec2binWzerofill(RCSwitch::nReceivedValue, RCSwitch::nReceivedBitlength);
+}
+
+
 unsigned int RCSwitch::getReceivedBitlength() {
   return RCSwitch::nReceivedBitlength;
 }
