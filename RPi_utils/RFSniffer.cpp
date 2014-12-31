@@ -30,7 +30,6 @@ int BinaryStringToDecimal(std::string a)
             }
         }
         Neg = -1;
-        std::cout << "XXX: " << a << "\n";
     }
     for (int i = a.length()-1; i >= 0; --i, Mask <<= 1) {
         if (a.at(i) != '0') {
@@ -48,7 +47,7 @@ int main(int argc, char *argv[]) {
      // This pin is not the first pin on the RPi GPIO header!
      // Consult https://projects.drogon.net/raspberry-pi/wiringpi/pins/
      // for more information.
-     int PIN = 2;
+     int PIN = 3;
      
      if(wiringPiSetup() == -1)
        return 0;
