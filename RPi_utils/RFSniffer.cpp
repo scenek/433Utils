@@ -12,6 +12,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <time.h>
 
 RCSwitch mySwitch;
  
@@ -58,6 +59,7 @@ int main(int argc, char *argv[]) {
      std::ofstream tempFile;
      std::ofstream humiFile;
 
+     char timet[100];
      while(1) {
   
       if (mySwitch.available()) {
@@ -67,8 +69,11 @@ int main(int argc, char *argv[]) {
         if (value == 0) {
           printf("Unknown encoding");
         } else {    
-   
-          printf("Received %i - %i - %s - %s\n", mySwitch.getReceivedValue(), mySwitch.getReceivedBitlength(), mySwitch.getReceivedValueBin(), mySwitch.getReceivedValueBin());
+
+          time_t now = time (0);
+          strftime (timet, 100, "%Y-%m-%d %H:%M:%S.000", localtime (&now));
+ 
+          printf("Received %s %i - %i - %s - %s\n", timet, mySwitch.getReceivedValue(), mySwitch.getReceivedBitlength(), mySwitch.getReceivedValueBin(), mySwitch.getReceivedValueBin());
           if (mySwitch.getReceivedBitlength() == 28) {
               char* valueC = mySwitch.getReceivedValueBin();
               std::string value (valueC,28);
